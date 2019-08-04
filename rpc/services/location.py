@@ -13,7 +13,7 @@ class LocationService(location_service.LocationServicer):
 	def GetLocation(self, request, context):
 		if request.id:
 			with app.app_context():
-				location = Location.query.filter_by(id=id).one_or_none()
+				location = Location.query.filter_by(id=request.id.value).one_or_none()
 				logging.debug(location)
 
 				if location:
