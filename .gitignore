@@ -7,3 +7,12 @@ app/schema/__pycache__/
 rpc/messages/__pycache__/
 rpc/messages/type/__pycache__/
 rpc/services/__pycache__
+app/*.pyc
+app/entity/*.pyc
+app/resources/*.pyc
+app/schema/*.pyc
+rpc/*.pyc
+rpc/messages/*.pyc
+rpc/messages/type/*.pyc
+rpc/services/*.pyc
+./*.pyc
