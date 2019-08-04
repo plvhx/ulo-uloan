@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package inventory;
+
+import "type/uuid.proto";
+import "google/protobuf/timestamp.proto";
+
+message LocationRequest {
+	uuid id = 1;
+	string type = 2;
+	string code = 3;
+	string name = 4;
+	string address = 5;
+	double latitude = 6;
+	double longitude = 7;
+	string phone = 8;
+	string status = 9;
+	google.protobuf.Timestamp created_at = 10;
+	google.protobuf.Timestamp updated_at = 11;	
+}
+
+message LocationResponse {
+	uuid id = 1;
+	string type = 2;
+	string code = 3;
+	string name = 4;
+	string address = 5;
+	double latitude = 6;
+	double longitude = 7;
+	string phone = 8;
+	string status = 9;
+	google.protobuf.Timestamp created_at = 10;
+	google.protobuf.Timestamp updated_at = 11;	
+}
+
+service Location {
+	rpc GetLocation(LocationRequest) returns (LocationResponse) {};
+	rpc GetLocations(LocationRequest) returns (stream LocationResponse) {};
+}
