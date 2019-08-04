@@ -43,12 +43,14 @@ from app.schema.item_serial_schema import ItemSerialSchema
 
 # load all resources
 from app.resources.location_resource import LocationResource
+from app.resources.item_reosurce import ItemResource
 
 api_bp = Blueprint('api', __name__)
 api = Api(api_bp)
 
 # routes
 api.add_resource(LocationResource, '/location')
+api.add_resource(ItemResource, '/item')
 
 # register api blueprint
 app.register_blueprint(api_bp, url_prefix='/api')

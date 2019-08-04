@@ -49,3 +49,58 @@ class LocationResource(Resource):
 		result = location_schema.dump(location).data
 
 		return {'status': 'ok', 'data': result}, 201
+
+	def put(self):
+		json_data = request.get_json(force=True)
+
+		if not json_data:
+			return {'message': 'No input data provided.'}, 400
+
+		data, errors = location_schema.load(json_data)
+
+		if errors:
+			return errors, 422
+
+		location = Location.query.filter_by(id=data['id']).first()
+
+		if not location:
+			return {'message': 'Location does not exist.'}, 400
+
+		location.type = data['type']
+		location.code = data['code']
+		location.name = data['name']
+		location.address = data['address']
+		location.latitude = data['latitude']
+		location.longitude = data['longitude']
+		location.phone = data['phone']
+		location.status = data['status']
+		location.created_at = json_data['created_at']
+		location.updated_at = json_data['updated_at']
+
+		# commit update
+		db.session.commit()
+
+		result = location_schema.dump(location).data
+
+		return {'status': 'ok', 'data': result}, 204
+
+	def delete(self):
+		json_data = request.get_json(force=True)
+
+		if not json_data:
+			return {'message': 'No input data provided.'}, 400
+
+		# validate and deserialize input data
+		data, errors = location_schema.load(json_data)
+
+		if errors:
+			return errors, 422
+
+		location = Location.query.filter_by(id=data['id']).delete()
+
+		# commit deletion
+		db.session.commit()
+
+		result = location_schema.dump(location).data
+
+		return {'status': 'ok', 'data': result}, 204

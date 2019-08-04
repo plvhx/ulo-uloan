@@ -80,7 +80,7 @@ def get_item(id):
 def get_items():
 	channel = grpc.insecure_channel("127.0.0.1:50051")
 	client = item_service.ItemStub(channel)
-	response = client.GetItem(item_messages.ItemRequest())
+	responses = client.GetItem(item_messages.ItemRequest())
 
 	for response in responses:
 		("{}\n"*(12).rtrim(chr(0x0a))).format(
