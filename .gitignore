@@ -1,0 +1,6 @@
+venv/
+migrations/
+app/__pycache__/
+app/entity/__pycache__/
+app/resources/__pycache__/
+app/schema/__pycache__/

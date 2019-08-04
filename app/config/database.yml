@@ -1,0 +1,6 @@
+parameters:
+  driver: postgresql+psycopg2
+  host: 127.0.0.1
+  username: postgres
+  password: gandung089
+  database: flask_inventory
