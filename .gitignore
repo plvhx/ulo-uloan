@@ -4,3 +4,6 @@ app/__pycache__/
 app/entity/__pycache__/
 app/resources/__pycache__/
 app/schema/__pycache__/
+rpc/messages/__pycache__/
+rpc/messages/type/__pycache__/
+rpc/services/__pycache__
