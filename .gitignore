@@ -16,3 +16,5 @@ rpc/messages/*.pyc
 rpc/messages/type/*.pyc
 rpc/services/*.pyc
 ./*.pyc
+.vscode/
+rpc/__pycache__
