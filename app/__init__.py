@@ -43,7 +43,7 @@ from app.schema.item_serial_schema import ItemSerialSchema
 
 # load all resources
 from app.resources.location_resource import LocationResource
-from app.resources.item_reosurce import ItemResource
+from app.resources.item_resource import ItemResource
 
 api_bp = Blueprint('api', __name__)
 api = Api(api_bp)

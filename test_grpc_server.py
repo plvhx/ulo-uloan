@@ -19,7 +19,7 @@ def get_location(id):
 
 	if response:
 		print(
-			("{}\n"*(11).rtrim(chr(0x0a))).format(
+			("{}\n"*(11)).rstrip(chr(0x0a)).format(
 				response.id.value,
 				response.type,
 				response.code,
@@ -41,7 +41,7 @@ def get_locations():
 
 	for response in responses:
 		print(
-			("{}\n"*(11).rtrim(chr(0x0a))).format(
+			("{}\n"*(11)).rstrip(chr(0x0a)).format(
 				response.id.value,
 				response.type,
 				response.code,
@@ -62,7 +62,7 @@ def get_item(id):
 	response = client.GetItem(item_messages.ItemRequest(id=convertToUUIDObject(id)))
 
 	if response:
-		("{}\n"*(12).rtrim(chr(0x0a))).format(
+		("{}\n"*(12)).rstrip(chr(0x0a)).format(
 			response.id.value,
 			response.code,
 			response.name,
@@ -83,7 +83,7 @@ def get_items():
 	responses = client.GetItem(item_messages.ItemRequest())
 
 	for response in responses:
-		("{}\n"*(12).rtrim(chr(0x0a))).format(
+		("{}\n"*(12)).rstrip(chr(0x0a)).format(
 			response.id.value,
 			response.code,
 			response.name,
@@ -97,3 +97,6 @@ def get_items():
 			str(response.created_at.ToDatetime()),
 			str(response.updated_at.ToDatetime())
 		)
+
+if __name__ == '__main__':
+	get_locations()
