@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package inventory;
+
+import "type/uuid.proto";
+import "google/protobuf/timestamp.proto";
+
+message BoundSerialRequest {
+    uuid id = 1;
+    uint64 inbound = 2;
+    uint64 outbound = 3;
+    uint64 balance = 4;
+    string comment = 5;
+    google.protobuf.Timestamp created_at = 6;
+    google.protobuf.Timestamp updated_at = 7;
+}
+
+message BoundSerialResponse {
+    uuid id = 1;
+    uint64 inbound = 2;
+    uint64 outbound = 3;
+    uint64 balance = 4;
+    string comment = 5;
+    google.protobuf.Timestamp created_at = 6;
+    google.protobuf.Timestamp updated_at = 7;
+}
+
+service BoundSerial {
+    rpc GetBoundSerial(BoundSerialRequest) returns (BoundSerialResponse) {};
+    rpc GetBoundSerials(BoundSerialRequest) returns (stream BoundSerialResponse) {};
+}

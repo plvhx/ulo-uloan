@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package inventory;
+
+import "type/uuid.proto";
+import "google/protobuf/timestamp.proto";
+
+message ConvertRuleRequest {
+    uuid id = 1;
+    uint64 default_amount = 2;
+    string status = 3;
+    google.protobuf.Timestamp created_at = 4;
+    google.protobuf.Timestamp updated_at = 5;
+}
+
+message ConvertRuleResponse {
+    uuid id = 1;
+    uint64 default_amount = 2;
+    string status = 3;
+    google.protobuf.Timestamp created_at = 4;
+    google.protobuf.Timestamp updated_at = 5;
+}
+
+service ConvertRule {
+    rpc GetConvertRule(ConvertRuleRequest) returns (ConvertRuleResponse) {};
+    rpc GetConvertRules(ConvertRuleRequest) returns (ConvertRuleResponse) {};
+}

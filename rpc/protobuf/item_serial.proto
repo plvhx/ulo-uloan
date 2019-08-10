@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package inventory;
+
+import "type/uuid.proto";
+import "google/protobuf/timestamp.proto";
+
+message ItemSerialRequest {
+    uuid id = 1;
+    string status = 2;
+    google.protobuf.Timestamp created_at = 3;
+    google.protobuf.Timestamp updated_at = 4;
+}
+
+message ItemSerialResponse {
+    uuid id = 1;
+    string status = 2;
+    google.protobuf.Timestamp created_at = 3;
+    google.protobuf.Timestamp updated_at = 4;
+}
+
+service ItemSerial {
+    rpc GetItemSerial(ItemSerialRequest) returns (ItemSerialResponse) {};
+    rpc GetItemSerials(ItemSerialRequest) returns (stream ItemSerialResponse) {};
+}
