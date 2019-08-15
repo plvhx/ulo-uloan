@@ -1,7 +1,6 @@
-# Inventory Service
-Inventory service using python and grpc
+# Ulo - Ulo an
 (still on development, contain bugs)
-##INSTALLATION
+#INSTALLATION
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 Make sure you also installed virtual environment or venv
 ```bash
